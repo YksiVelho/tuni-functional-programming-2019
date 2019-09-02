@@ -2,14 +2,24 @@
 Lecture 2 2019.09.02
 --}
 
+
+-- dollar sign to change the running order
+-- sum'' (map(2+) [1..20])
+-- is the same as:
+-- sum'' $ map(2+) [1..20]
+
+
+-- load modules :m
+-- in the .hs file 'import'
+-- most modules come with haskell-platform
+
 import Data.Char
--- for geometry:
 import qualified Geometry.Cube as Cube
 import qualified Geometry.Cuboid as Cuboid
 import Area
 
--- load modules :m
--- in the .hs file 'import'
+
+
 
 -- ?
 multThreeInts :: Int -> Int -> Int -> Int
@@ -67,25 +77,22 @@ product'' xs = fold1 (\acc x -> acc * x) 1 xs
 -- is the same as:
 -- sum'' $ map(2+) [1..20]
 
--- load modules :m
--- in the .hs file 'import'
--- most modules come with haskell-platform
-
--- function shifts the chars
--- ord is function of Data.Char which encodes Char into Int
--- shift is the direction and amount of shift
--- msg is a string
 -- encode -3 "hello"
 -- khoor
 encode shift msg = 
     let numbers = map ord msg
 	shifted = map ((+) shift) numbers
     in map chr shifted
+-- function shifts the chars in alphabets
+-- ord is function of Data.Char which encodes Char to Int
+-- shift is the direction and amount of shift
+-- msg is a string
+
 
 
 {--
  MAKING OF A MODULE
- create in a separate file: Cuboid.hs
+ create in a separate file ie: Cuboid.hs
  --}
 
 {--
